@@ -1,0 +1,184 @@
+/* =========================
+   RATING WIDGET
+========================= */
+
+.rating-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 5px;
+  margin: 20px 0;
+  border-radius: 12px;
+}
+
+/* =========================
+   RATING SUMMARY
+========================= */
+
+.rating-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rating-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.rating-average {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e2a4a;
+}
+
+.rating-count {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* =========================
+   STARS
+========================= */
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star {
+  display: inline-block;
+  font-size: 28px;
+  line-height: 1;
+  color: #d1d5db;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+/* Filled stars */
+
+.star-filled {
+  color: #f5a623;
+}
+
+/* =========================
+   INTERACTIVE STARS
+========================= */
+
+.star-row.interactive .star {
+  cursor: pointer;
+}
+
+.star-row.interactive .star:hover {
+  transform: scale(1.15);
+  color: #f5a623;
+}
+
+/* =========================
+   USER RATING
+========================= */
+
+.rating-user-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.rating-user-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e2a4a;
+}
+
+.rating-saving {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .rating-widget {
+    margin: 15px 0;
+  }
+
+  .rating-average {
+    font-size: 22px;
+  }
+
+  .star {
+    font-size: 26px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .rating-widget {
+    gap: 10px;
+    margin: 15px 0;
+  }
+
+  .rating-summary {
+    gap: 8px;
+  }
+
+  .rating-label {
+    font-size: 13px;
+  }
+
+  .rating-average {
+    font-size: 20px;
+  }
+
+  .rating-count {
+    font-size: 13px;
+  }
+
+  .star-row {
+    gap: 3px;
+  }
+
+  .star {
+    font-size: 24px;
+  }
+
+  .rating-user-input {
+    gap: 8px;
+  }
+
+  .rating-user-label {
+    font-size: 13px;
+  }
+
+  .rating-saving {
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+  .rating-summary,
+  .rating-user-input {
+    gap: 6px;
+  }
+
+  .star {
+    font-size: 22px;
+  }
+
+  .rating-average {
+    font-size: 18px;
+  }
+}

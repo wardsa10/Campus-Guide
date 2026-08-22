@@ -1,0 +1,303 @@
+/* =========================
+   ADD UNIVERSITY OVERLAY
+========================= */
+
+.addUniversityOverlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+  padding: 16px;
+
+  box-sizing: border-box;
+}
+
+/* =========================
+   ADD UNIVERSITY MODAL
+========================= */
+
+.addUniversity {
+  background: #ffffff;
+
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+
+  border-radius: 12px;
+
+  overflow-y: auto;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   MODAL HEADER
+========================= */
+
+.addUniversityHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.addUniversityHeader h1 {
+  font-size: 20px;
+  font-weight: 600;
+
+  margin: 0;
+
+  color: #111827;
+}
+
+.addUniversityCloseBtn {
+  background: none;
+  border: none;
+
+  font-size: 18px;
+  cursor: pointer;
+
+  color: #6b7280;
+
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.addUniversityCloseBtn:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.addUniversityForm {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   FORM FIELD
+========================= */
+
+.addUniversityField {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.addUniversityField label {
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #374151;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.addUniversityField input,
+.addUniversityField textarea,
+.addUniversityField select {
+  width: 100%;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  padding: 10px 12px;
+
+  font-size: 14px;
+  font-family: inherit;
+
+  outline: none;
+
+  box-sizing: border-box;
+}
+
+.addUniversityField input:focus,
+.addUniversityField textarea:focus,
+.addUniversityField select:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================
+   TEXTAREA
+========================= */
+
+.addUniversityField textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.addUniversityActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 8px;
+}
+
+.addUniversityCancelBtn,
+.addUniversitySubmitBtn {
+  padding: 10px 18px;
+
+  border-radius: 8px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.addUniversityCancelBtn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.addUniversityCancelBtn:hover {
+  background: #e5e7eb;
+}
+
+.addUniversitySubmitBtn {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.addUniversitySubmitBtn:hover {
+  background: #1d4ed8;
+}
+
+.addUniversityCancelBtn:active,
+.addUniversitySubmitBtn:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   DISABLED BUTTONS
+========================= */
+
+.addUniversityCancelBtn:disabled,
+.addUniversitySubmitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .addUniversity {
+    max-width: 500px;
+  }
+
+  .addUniversityHeader {
+    padding: 18px 20px;
+  }
+
+  .addUniversityForm {
+    padding: 20px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .addUniversityOverlay {
+    padding: 10px;
+  }
+
+  .addUniversity {
+    max-height: 95vh;
+    border-radius: 10px;
+  }
+
+  .addUniversityHeader {
+    padding: 16px;
+  }
+
+  .addUniversityHeader h1 {
+    font-size: 18px;
+  }
+
+  .addUniversityForm {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .addUniversityField label {
+    font-size: 13px;
+  }
+
+  .addUniversityField input,
+  .addUniversityField textarea,
+  .addUniversityField select {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .addUniversityActions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .addUniversityCancelBtn,
+  .addUniversitySubmitBtn {
+    width: 100%;
+    padding: 11px;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+  .addUniversityOverlay {
+    padding: 6px;
+  }
+
+  .addUniversity {
+    max-height: 96vh;
+  }
+
+  .addUniversityHeader {
+    padding: 14px;
+  }
+
+  .addUniversityForm {
+    padding: 14px;
+  }
+
+  .addUniversityHeader h1 {
+    font-size: 17px;
+  }
+}

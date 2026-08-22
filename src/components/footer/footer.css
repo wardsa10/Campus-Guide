@@ -1,0 +1,69 @@
+.footer {
+  width: 100%;
+  background-color: #1e2a4a;
+  color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+/* Graduation icon */
+.footer .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  background-color: #f5a623;
+  color: #1e2a4a;
+
+  border-radius: 8px;
+  font-size: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Campus Guide text */
+.footer {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Description */
+.footer h5 {
+  margin: 12px 0 10px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* Copyright */
+.footer p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .footer {
+    padding: 25px 15px;
+  }
+
+  .footer .icon {
+    width: 35px;
+    height: 35px;
+    font-size: 17px;
+  }
+
+  .footer h5 {
+    font-size: 12px;
+  }
+
+  .footer p {
+    font-size: 11px;
+  }
+}

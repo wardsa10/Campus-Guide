@@ -1,0 +1,283 @@
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  width: 100%;
+  min-height: 35%;
+  background-color: #1e2a4a;
+  padding: 10px 15px;
+
+  /* Sticky header */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  box-sizing: border-box;
+}
+
+.headerTop {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+#campusIcon {
+  color: #ffffff;
+  font-size: 125%;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 2%;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#campusIcon .icon {
+  background-color: #f5a623;
+  color: #1e2a4a;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* =========================
+   USER PROFILE
+========================= */
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  /* Push profile to the right */
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.userAvatar {
+  background-color: #f5a623;
+  color: #1e2a4a;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.userName {
+  color: #fefefe;
+  font-weight: 600;
+  font-size: 87.5%;
+}
+
+.userRole {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 75%;
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  display: flex;
+  align-items: center;
+
+  margin-left: 8px;
+  padding: 0;
+}
+
+.logoutBtn:hover {
+  opacity: 0.85;
+}
+
+/* =========================
+   LOGIN / REGISTER BUTTONS
+========================= */
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  /* Push buttons to the right */
+  margin-left: auto;
+}
+
+.signinBtn {
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.registerBtn {
+  background-color: #f5a623;
+  color: #1e2a4a;
+
+  border: none;
+  padding: 0.6em 1.4em;
+  border-radius: 8px;
+
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.signinBtn:hover,
+.registerBtn:hover,
+#campusIcon:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .headerTop {
+    gap: 15px;
+  }
+
+  #campusIcon {
+    font-size: 110%;
+  }
+
+  .userProfile {
+    margin-right: 5px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .header {
+    padding: 10px 12px;
+  }
+
+  .headerTop {
+    gap: 10px;
+  }
+
+  #campusIcon {
+    font-size: 100%;
+    margin-right: 0;
+  }
+
+  #campusIcon .icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .userProfile {
+    margin-left: auto;
+    margin-right: 0;
+    gap: 7px;
+  }
+
+  .userAvatar {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .userName {
+    font-size: 75%;
+  }
+
+  .userRole {
+    font-size: 65%;
+  }
+
+  .logoutBtn {
+    margin-left: 3px;
+  }
+
+  .buttons {
+    gap: 10px;
+    margin-left: auto;
+  }
+
+  .signinBtn,
+  .registerBtn {
+    font-size: 75%;
+  }
+
+  .registerBtn {
+    padding: 0.5em 0.9em;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+  .header {
+    padding: 8px 10px;
+  }
+
+  .headerTop {
+    gap: 6px;
+  }
+
+  #campusIcon {
+    font-size: 85%;
+  }
+
+  #campusIcon .icon {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .userInfo {
+    display: none;
+  }
+
+  .buttons {
+    gap: 7px;
+  }
+
+  .signinBtn,
+  .registerBtn {
+    font-size: 70%;
+  }
+}

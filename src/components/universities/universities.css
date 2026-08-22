@@ -1,0 +1,534 @@
+/* =========================================================
+   UNIVERSITIES SECTION
+========================================================= */
+
+.universities-section {
+  width: 95%;
+  max-width: 1300px;
+
+  margin: 0 auto;
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background-color: rgb(255, 253, 253);
+}
+
+
+/* =========================================================
+   HERO / NAV
+========================================================= */
+
+.nav {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 1% 20% 0;
+
+  box-sizing: border-box;
+
+  background-color: #1e2a4a;
+}
+
+.eyebrow {
+  margin: 0 0 3%;
+
+  color: #f5a623;
+
+  letter-spacing: 2px;
+
+  font-size: 81%;
+  font-weight: 700;
+}
+
+.heroTitle {
+  margin: 0 0 4%;
+
+  color: #ffffff;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 250%;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  margin: 0 0 6%;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 106%;
+  font-weight: 400;
+
+  line-height: 1.6;
+}
+
+.navLink {
+  margin: 0 3%;
+
+  color: #ffffff;
+
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #f5a623;
+}
+
+
+/* =========================================================
+   SEARCH + UNIVERSITIES COUNT
+========================================================= */
+
+.search-row {
+  position: relative;
+
+  width: 100%;
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+
+  margin: 20px 0;
+}
+
+.universities-count {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.university-search {
+  position: absolute;
+
+  left: 50%;
+
+  width: 100%;
+  max-width: 500px;
+
+  transform: translateX(-50%);
+}
+
+#universitySearch {
+  width: 100%;
+
+  padding: 14px 45px 14px 18px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+
+  outline: none;
+
+  background-color: #ffffff;
+  color: #1e2a4a;
+
+  font-size: 16px;
+}
+
+#universitySearch:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+#universitySearch::placeholder {
+  color: #9ca3af;
+}
+
+.clearSearchBtn {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  padding: 5px;
+
+  border: none;
+
+  transform: translateY(-50%);
+
+  background: none;
+
+  color: #6b7280;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.clearSearchBtn:hover {
+  color: #1e2a4a;
+}
+
+
+/* =========================================================
+   UNIVERSITIES GRID
+   Desktop + Tablet = 2 cards per row
+========================================================= */
+
+.universities-container {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   UNIVERSITY CARD
+========================================================= */
+
+.universitys-card {
+  width: 100%;
+
+  display: block;
+
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  color: inherit;
+  text-decoration: none;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.universitys-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #d1d5db;
+
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   UNIVERSITY IMAGE
+========================================================= */
+
+.university-image {
+  width: 100%;
+  height: 220px;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   UNIVERSITY NAME
+========================================================= */
+
+.universitys-card h2 {
+  margin: 20px 20px 10px;
+
+  color: #111827;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.universitys-card p {
+  margin: 8px 20px;
+
+  color: #6b7280;
+
+  font-size: 15px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   MAJORS
+========================================================= */
+
+.majors-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  padding: 12px 20px 20px;
+}
+
+.major {
+  padding: 6px 11px;
+
+  border-radius: 20px;
+
+  background-color: #eff6ff;
+  color: black;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.universitys-card:hover .major {
+  background-color: #dbeafe;
+}
+
+
+/* =========================================================
+   ADD UNIVERSITY BUTTON
+========================================================= */
+
+.addUniversityBtn {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #1e2a4a;
+  color: #f5b942;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.addUniversityBtn:hover {
+  background: #16213a;
+}
+
+.addUniversityBtn:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   ADMIN BUTTONS
+========================================================= */
+
+.editBtn,
+.deleteBtn {
+  padding: 9px 18px;
+  margin-right: 8px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #d2d2d2;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.editBtn:hover {
+  background-color: #1d4ed8;
+
+  transform: translateY(-2px);
+}
+
+.deleteBtn:hover {
+  background-color: rgb(209, 51, 51);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+   601px - 900px
+========================================================= */
+
+@media (max-width: 900px) {
+  .universities-section {
+    width: 94%;
+
+    padding: 25px;
+  }
+
+  .nav {
+    padding: 30px 10% 20px;
+  }
+
+  .heroTitle {
+    font-size: 220%;
+  }
+
+  .heroSubtitle {
+    font-size: 100%;
+  }
+
+  .university-image {
+    height: 190px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   Up to 600px
+========================================================= */
+
+@media (max-width: 600px) {
+  .universities-section {
+    width: 100%;
+
+    padding: 20px 15px;
+  }
+
+  .nav {
+    padding: 30px 20px 20px;
+  }
+
+  .eyebrow {
+    font-size: 70%;
+
+    letter-spacing: 1.5px;
+  }
+
+  .heroTitle {
+    font-size: 190%;
+  }
+
+  .heroSubtitle {
+    font-size: 90%;
+
+    line-height: 1.5;
+  }
+
+  /* One card per row on phones */
+  .universities-container {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .universitys-card {
+    width: 100%;
+  }
+
+  .university-image {
+    height: 200px;
+  }
+
+  .universitys-card h2 {
+    font-size: 21px;
+  }
+
+  /* Search becomes normal flow on mobile */
+  .search-row {
+    min-height: auto;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 15px;
+  }
+
+  .university-search {
+    position: relative;
+
+    left: auto;
+
+    width: 100%;
+    max-width: 100%;
+
+    transform: none;
+  }
+
+  .universities-count {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   Up to 380px
+========================================================= */
+
+@media (max-width: 380px) {
+  .universities-section {
+    padding: 15px 10px;
+  }
+
+  .nav {
+    padding: 25px 15px 15px;
+  }
+
+  .heroTitle {
+    font-size: 170%;
+  }
+
+  .heroSubtitle {
+    font-size: 85%;
+  }
+
+  .university-image {
+    height: 180px;
+  }
+
+  .universitys-card h2 {
+    margin: 15px 15px 8px;
+
+    font-size: 19px;
+  }
+
+  .universitys-card p {
+    margin: 8px 15px;
+
+    font-size: 14px;
+  }
+
+  .majors-list {
+    padding: 10px 15px 15px;
+  }
+}

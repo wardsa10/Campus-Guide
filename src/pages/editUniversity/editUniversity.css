@@ -1,0 +1,295 @@
+/* =========================
+   EDIT UNIVERSITY PAGE
+========================= */
+
+.editPage {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 60px 20px;
+
+  background: #f7f9fc;
+
+  box-sizing: border-box;
+}
+
+/* =========================
+   EDIT FORM
+========================= */
+
+.editForm {
+  width: 100%;
+  max-width: 650px;
+
+  background: #ffffff;
+
+  padding: 35px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+  box-sizing: border-box;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.editHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.editHeader h2 {
+  margin: 0;
+
+  font-size: 26px;
+  color: #1f2937;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.editHeader button {
+  width: 35px;
+  height: 35px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  font-size: 24px;
+  color: #6b7280;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.editHeader button:hover {
+  background: #f1f5f9;
+  color: #dc2626;
+}
+
+/* =========================
+   LABELS
+========================= */
+
+.editForm label {
+  display: block;
+
+  margin-top: 18px;
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+/* =========================
+   INPUTS AND SELECT
+========================= */
+
+.editForm input,
+.editForm select {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-family: inherit;
+
+  color: #1f2937;
+  background: #ffffff;
+
+  box-sizing: border-box;
+  outline: none;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editForm input:focus,
+.editForm select:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* =========================
+   FORM BUTTONS
+========================= */
+
+.editFormButtons {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 30px;
+  padding-top: 20px;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.editFormButtons button {
+  padding: 11px 20px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* =========================
+   CANCEL BUTTON
+========================= */
+
+.editFormButtons button[type="button"] {
+  background: #ffffff;
+  color: #374151;
+
+  border: 1px solid #d1d5db;
+}
+
+.editFormButtons button[type="button"]:hover {
+  background: #f3f4f6;
+}
+
+/* =========================
+   UPDATE BUTTON
+========================= */
+
+.editFormButtons button[type="submit"] {
+  background: #2563eb;
+  color: #ffffff;
+
+  border: none;
+}
+
+.editFormButtons button[type="submit"]:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.editPage > p {
+  font-size: 18px;
+  color: #6b7280;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .editPage {
+    padding: 45px 20px;
+  }
+
+  .editForm {
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .editHeader h2 {
+    font-size: 24px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .editPage {
+    padding: 30px 15px;
+  }
+
+  .editForm {
+    padding: 25px 20px;
+    border-radius: 12px;
+  }
+
+  .editHeader {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+
+  .editHeader h2 {
+    font-size: 22px;
+  }
+
+  .editHeader button {
+    width: 32px;
+    height: 32px;
+    font-size: 21px;
+  }
+
+  .editForm label {
+    font-size: 13px;
+  }
+
+  .editForm input,
+  .editForm select {
+    font-size: 14px;
+    padding: 11px 12px;
+  }
+
+  .editFormButtons {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .editFormButtons button {
+    width: 100%;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+  .editPage {
+    padding: 20px 10px;
+  }
+
+  .editForm {
+    padding: 20px 15px;
+  }
+
+  .editHeader h2 {
+    font-size: 20px;
+  }
+
+  .editFormButtons {
+    margin-top: 25px;
+    padding-top: 15px;
+  }
+}
