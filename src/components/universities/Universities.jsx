@@ -81,7 +81,7 @@ export default function Universities() {
       // Refresh universities after deleting
       await getUniversities();
 
-      console.log("University deleted successfully");
+     alert("University deleted successfully");
     } catch (error) {
       console.error("Error deleting university:", error);
     }

@@ -1,0 +1,333 @@
+/* =========================================================
+   COMMENT CARD
+========================================================= */
+
+.comment {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 22px 26px;
+  background-color: #ffffff;
+  border: 1px solid #ececea;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+  transition:
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.comment:hover {
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
+}
+
+/* =========================================================
+   COMMENT HEADER
+========================================================= */
+
+.comment-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.comment-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* =========================================================
+   COMMENT AVATAR
+========================================================= */
+
+.comment-avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.comment-avatar-placeholder.small {
+  width: 32px;
+  height: 32px;
+  font-size: 13px;
+}
+
+/* =========================================================
+   COMMENT AUTHOR
+========================================================= */
+
+.comment-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.comment-author {
+  color: #111827;
+  font-size: 15.5px;
+  font-weight: 700;
+}
+
+.comment-date {
+  display: block;
+  margin-top: 3px;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+/* =========================================================
+   ROLE BADGES
+========================================================= */
+
+.role-badge {
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.role-admin {
+  background-color: #fde68a;
+  color: #92400e;
+}
+
+.role-student {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.role-visitor {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+/* =========================================================
+   CATEGORY BADGES
+========================================================= */
+
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.category-accommodation {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.category-transportation {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.category-tuition {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.category-activities {
+  background-color: #ede9fe;
+  color: #6d28d9;
+}
+
+.category-othertopics {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+/* =========================================================
+   COMMENT TEXT
+========================================================= */
+
+.comment-text {
+  margin: 0 0 14px;
+  color: #1f2937;
+  font-size: 15px;
+  line-height: 1.65;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* =========================================================
+   COMMENT ACTIONS
+========================================================= */
+
+.comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 4px;
+  border-top: 1px solid #f3f2ef;
+}
+
+.comment-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 0 0;
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.comment-actions button:hover {
+  color: #1e2a4a;
+}
+
+.like-button.liked {
+  color: #dc2626 !important;
+}
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.delete-button {
+  color: #fff; 
+}
+
+.delete-button:hover {
+  color: #b91c1c !important;
+}
+
+/* =========================================================
+   REPLY FORM
+========================================================= */
+
+.reply-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.reply-form input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 16px;
+  border: 1px solid #e0ddd6;
+  border-radius: 999px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.reply-form input[type="text"]:focus {
+  border-color: #1e2a4a;
+  box-shadow: 0 0 0 3px rgba(30, 42, 74, 0.12);
+}
+
+.reply-form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #1e2a4a;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.reply-form button[type="submit"]:hover {
+  background-color: #14203a;
+}
+
+/* =========================================================
+   REPLIES
+========================================================= */
+
+.replies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+  padding-left: 0.2px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .comment {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .comment-header {
+    flex-direction: column;
+  }
+
+  .category-badge {
+    align-self: flex-start;
+  }
+
+  .reply-form {
+    flex-direction: column;
+  }
+
+  .reply-form input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .reply-form button[type="submit"] {
+    align-self: flex-end;
+  }
+
+  .replies-list {
+    padding-left: 12px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .comment {
+    padding: 15px;
+    border-radius: 14px;
+  }
+
+  .comment-author {
+    font-size: 14px;
+  }
+
+  .comment-text {
+    font-size: 14px;
+  }
+
+  .comment-avatar-placeholder {
+    width: 35px;
+    height: 35px;
+    font-size: 13px;
+  }
+
+  .category-badge {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}

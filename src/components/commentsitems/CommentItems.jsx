@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 
+import "./commentitems.css";
+
 import {
-  collection,
-  addDoc,
-  serverTimestamp,
   doc,
   getDoc,
   deleteDoc,
@@ -12,7 +11,7 @@ import {
   arrayRemove,
 } from "firebase/firestore";
 
-import { db, auth } from ".././config/firbase";
+import { db, auth } from "../../config/firbase";
 
 // =========================
 // AVATAR COLORS
@@ -62,37 +61,6 @@ const ROLE_META = {
   },
 };
 
-// =========================
-// CATEGORY INFORMATION
-// =========================
-
-const CATEGORY_META = {
-  accommodation: {
-    label: "🏠 Accommodation",
-    className: "category-accommodation",
-  },
-
-  transportation: {
-    label: "🚌 Transportation",
-    className: "category-transportation",
-  },
-
-  tuition: {
-    label: "💰 Tuition & Fees",
-    className: "category-tuition",
-  },
-
-  activities: {
-    label: "🎉 Activities",
-    className: "category-activities",
-  },
-
-  othertopics: {
-    label: "💬 Other Topics",
-    className: "category-othertopics",
-  },
-};
-
 export default function CommentItem({
   universityId,
   comment,
@@ -101,14 +69,7 @@ export default function CommentItem({
   showCategory,
 }) {
   const [author, setAuthor] = useState(null);
-
   const [viewerRole, setViewerRole] = useState(null);
-
-  const [showReplyForm, setShowReplyForm] = useState(false);
-
-  const [showReplies, setShowReplies] = useState(true);
-
-  const [replyText, setReplyText] = useState("");
 
   const currentUser = auth.currentUser;
 
@@ -162,15 +123,14 @@ export default function CommentItem({
 
   const displayName = author?.name || "Anonymous";
 
-  const role = author?.role || "visitor";
+  const role =
+    author?.role === "student" && author?.universityId === universityId
+      ? "student"
+      : author?.role === "admin"
+        ? "admin"
+        : "visitor";
 
   const roleMeta = ROLE_META[role] || ROLE_META.visitor;
-
-  // =========================
-  // COMMENT CATEGORY
-  // =========================
-
-  const categoryMeta = CATEGORY_META[comment.category];
 
   // =========================
   // LIKES
@@ -210,54 +170,6 @@ export default function CommentItem({
   };
 
   // =========================
-  // FIND REPLIES
-  // =========================
-
-  const childReplies = allComments.filter((c) => c.parentId === comment.id);
-
-  // =========================
-  // ADD REPLY
-  // =========================
-
-  const handleAddReply = async (e) => {
-    e.preventDefault();
-
-    const text = replyText.trim();
-
-    if (!text) return;
-
-    const user = auth.currentUser;
-
-    if (!user) {
-      alert("Please log in to reply.");
-      return;
-    }
-
-    try {
-      await addDoc(collection(db, "universities", universityId, "comments"), {
-        text,
-
-        // Reply keeps the same category
-        category: comment.category,
-
-        parentId: comment.id,
-
-        userId: user.uid,
-
-        likes: [],
-
-        createdAt: serverTimestamp(),
-      });
-
-      setReplyText("");
-      setShowReplyForm(false);
-      setShowReplies(true);
-    } catch (error) {
-      console.error("Error adding reply:", error);
-    }
-  };
-
-  // =========================
   // FORMAT DATE
   // =========================
 
@@ -293,8 +205,10 @@ export default function CommentItem({
 
     try {
       await Promise.all(
-        idsToDelete.map((cid) =>
-          deleteDoc(doc(db, "universities", universityId, "comments", cid)),
+        idsToDelete.map((commentId) =>
+          deleteDoc(
+            doc(db, "universities", universityId, "comments", commentId),
+          ),
         ),
       );
     } catch (error) {
@@ -323,9 +237,7 @@ export default function CommentItem({
         marginLeft: depth > 0 ? 24 : 0,
       }}
     >
-      {/* =========================
-          COMMENT HEADER
-      ========================= */}
+      {/* COMMENT HEADER */}
 
       <div className="comment-header">
         <div className="comment-header-left">
@@ -340,7 +252,7 @@ export default function CommentItem({
             {displayName.charAt(0).toUpperCase()}
           </div>
 
-          {/* User information */}
+          {/* User Information */}
 
           <div>
             <div className="comment-name-row">
@@ -354,14 +266,18 @@ export default function CommentItem({
                 {roleMeta.label}
               </span>
 
-              {/* CATEGORY */}
+              {/* Category */}
 
               {showCategory && (
                 <span className={`category-badge category-${comment.category}`}>
                   {comment.category === "accommodation" && "🏠 Accommodation"}
+
                   {comment.category === "transportation" && "🚌 Transportation"}
+
                   {comment.category === "tuition" && "💰 Tuition & Fees"}
+
                   {comment.category === "activities" && "🎉 Activities"}
+
                   {comment.category === "othertopics" && "💬 Other Topics"}
                 </span>
               )}
@@ -376,15 +292,11 @@ export default function CommentItem({
         </div>
       </div>
 
-      {/* =========================
-          COMMENT TEXT
-      ========================= */}
+      {/* COMMENT TEXT */}
 
       <p className="comment-text">{comment.text}</p>
 
-      {/* =========================
-          COMMENT ACTIONS
-      ========================= */}
+      {/* COMMENT ACTIONS */}
 
       <div className="comment-actions">
         {/* Like */}
@@ -396,21 +308,6 @@ export default function CommentItem({
         >
           {hasLiked ? "❤️" : "🤍"} {likes.length > 0 ? likes.length : ""} Like
         </button>
-
-        {/* Reply */}
-
-        <button type="button" onClick={() => setShowReplyForm((s) => !s)}>
-          Reply
-        </button>
-
-        {/* Show / Hide replies */}
-
-        {childReplies.length > 0 && (
-          <button type="button" onClick={() => setShowReplies((s) => !s)}>
-            {showReplies ? "Hide" : "Show"} {childReplies.length}{" "}
-            {childReplies.length === 1 ? "reply" : "replies"}
-          </button>
-        )}
 
         {/* Delete */}
 
@@ -424,41 +321,6 @@ export default function CommentItem({
           </button>
         )}
       </div>
-
-      {/* =========================
-          REPLY FORM
-      ========================= */}
-
-      {showReplyForm && (
-        <form onSubmit={handleAddReply} className="reply-form">
-          <input
-            type="text"
-            placeholder={`Reply to ${displayName}...`}
-            value={replyText}
-            onChange={(e) => setReplyText(e.target.value)}
-          />
-
-          <button type="submit">Reply</button>
-        </form>
-      )}
-
-      {/* =========================
-          REPLIES
-      ========================= */}
-
-      {showReplies && childReplies.length > 0 && (
-        <div className="replies-list">
-          {childReplies.map((reply) => (
-            <CommentItem
-              key={reply.id}
-              universityId={universityId}
-              comment={reply}
-              allComments={allComments}
-              depth={depth + 1}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }

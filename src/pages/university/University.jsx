@@ -16,7 +16,7 @@ import {
 } from "firebase/firestore";
 
 import { db, auth } from "../../config/firbase";
-import CommentItem from "../../components/CommentItems";
+import CommentItem from "../../components/commentsitems/CommentItems";
 import RatingWidget from "../../components/rating/RatingWidget";
 
 export default function University() {

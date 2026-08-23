@@ -5,15 +5,11 @@
 .university-card {
   width: 100%;
   max-width: 1100px;
-
   margin: 0 auto;
   padding: 20px;
-
   box-sizing: border-box;
-
   font-family: "Segoe UI", Arial, sans-serif;
 }
-
 
 /* =========================================================
    BACK LINK
@@ -21,9 +17,7 @@
 
 .back-link {
   display: inline-block;
-
   margin-bottom: 16px;
-
   color: #333;
   text-decoration: none;
   font-weight: 500;
@@ -33,36 +27,29 @@
   text-decoration: underline;
 }
 
-
 /* =========================================================
    UNIVERSITY HERO
 ========================================================= */
 
 .university-hero {
   position: relative;
-
   width: 100%;
-
   border-radius: 16px;
   overflow: hidden;
-
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
-
 
 /* Hero image */
 
 .university-image {
   width: 100%;
   height: 380px;
-
   display: block;
-
   object-fit: cover;
 }
 
 /* =========================================================
-   UNIVERSITY OVERLAY (text on top of image)
+   UNIVERSITY OVERLAY
 ========================================================= */
 
 .university-overlay {
@@ -70,7 +57,6 @@
   bottom: 0;
   left: 0;
   width: 100%;
-
   box-sizing: border-box;
   padding: 24px 28px;
 
@@ -83,6 +69,7 @@
 
   color: #fff;
 }
+
 /* =========================================================
    UNIVERSITY LOCATION
 ========================================================= */
@@ -90,11 +77,8 @@
 .university-location {
   display: flex;
   align-items: center;
-
   gap: 6px;
-
   margin: 0;
-
   font-size: 1rem;
   opacity: 0.9;
 }
@@ -102,10 +86,8 @@
 .location-icon {
   width: 18px;
   height: 18px;
-
   flex-shrink: 0;
 }
-
 
 /* =========================================================
    UNIVERSITY BADGE
@@ -113,7 +95,6 @@
 
 .university-badge {
   display: inline-block;
-
   margin-bottom: 12px;
   padding: 5px 14px;
 
@@ -121,11 +102,9 @@
   color: #fff;
 
   border-radius: 999px;
-
   font-size: 13px;
   font-weight: 600;
 }
-
 
 /* =========================================================
    UNIVERSITY NAME
@@ -135,13 +114,11 @@
   margin: 0 0 8px;
 
   font-family: Georgia, "Times New Roman", serif;
-
   font-size: 1.4rem;
   font-weight: 700;
 
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
-
 
 /* =========================================================
    UNIVERSITY CONTENT
@@ -150,7 +127,6 @@
 .university-card-content {
   padding: 24px 4px;
 }
-
 
 /* =========================================================
    MAJORS
@@ -163,9 +139,7 @@
 .majors-list {
   display: flex;
   flex-wrap: wrap;
-
   gap: 8px;
-
   margin-top: 8px;
 }
 
@@ -176,10 +150,8 @@
   color: #334155;
 
   border-radius: 999px;
-
   font-size: 0.85rem;
 }
-
 
 /* =========================================================
    ABOUT
@@ -187,12 +159,9 @@
 
 .university-about {
   margin: 16px 0;
-
   color: #444;
-
   line-height: 1.6;
 }
-
 
 /* =========================================================
    UNIVERSITY BUTTON
@@ -209,7 +178,6 @@
 
   font-size: 1rem;
   font-weight: 600;
-
   cursor: pointer;
 
   transition: background-color 0.2s ease;
@@ -219,7 +187,6 @@
   background-color: #1d4ed8;
 }
 
-
 /* =========================================================
    COMMENT CATEGORY FILTER
 ========================================================= */
@@ -227,16 +194,13 @@
 .comments {
   display: flex;
   flex-wrap: wrap;
-
   gap: 10px;
-
   margin: 20px 0;
 }
 
 .commentCategory {
   display: flex;
   align-items: center;
-
   gap: 6px;
 
   padding: 10px 18px;
@@ -251,26 +215,21 @@
   font-weight: 600;
 
   cursor: pointer;
-
   transition: all 0.2s ease;
 }
 
 .commentCategory:hover {
   background: #f2f2f2;
   border-color: #cfcfcf;
-
   transform: translateY(-1px);
 }
 
 .commentCategory.active {
   background-color: #1e2a4a;
   color: white;
-
   border-color: #1e2a4a;
-
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
-
 
 /* =========================================================
    SORT CONTROLS
@@ -279,9 +238,7 @@
 .sort-controls {
   display: flex;
   flex-wrap: wrap;
-
   gap: 8px;
-
   margin: 16px 0 20px;
 }
 
@@ -298,7 +255,6 @@
   font-weight: 600;
 
   cursor: pointer;
-
   transition: all 0.15s ease;
 }
 
@@ -313,7 +269,6 @@
   color: #ffffff;
 }
 
-
 /* =========================================================
    COMMENTS LIST
 ========================================================= */
@@ -326,12 +281,10 @@
 
   display: flex;
   flex-direction: column;
-
   gap: 16px;
 
   box-sizing: border-box;
 }
-
 
 /* =========================================================
    NO COMMENTS
@@ -339,7 +292,6 @@
 
 .no-comments {
   width: 100%;
-
   box-sizing: border-box;
 
   margin: 25px 0;
@@ -348,17 +300,14 @@
   text-align: center;
 
   color: #64748b;
-
   font-size: 16px;
   font-weight: 500;
 
   background: #f8fafc;
 
   border-radius: 12px;
-
   border: 1px dashed #cbd5e1;
 }
-
 
 /* =========================================================
    NEW COMMENT FORM
@@ -370,7 +319,6 @@
 
   display: flex;
   flex-direction: column;
-
   gap: 14px;
 
   box-sizing: border-box;
@@ -395,7 +343,6 @@
   border-color: #d8d5cd;
 }
 
-
 /* Comment input */
 
 .comments form input[type="text"] {
@@ -412,7 +359,6 @@
   background: transparent;
 
   font-size: 15px;
-
   outline: none;
 
   transition: border-color 0.15s ease;
@@ -426,7 +372,6 @@
 .comments form input[type="text"]::placeholder {
   color: #9ca3af;
 }
-
 
 /* Submit comment */
 
@@ -455,335 +400,6 @@
   background-color: #14203a;
 }
 
-
-/* =========================================================
-   COMMENT CARD
-========================================================= */
-
-.comment {
-  width: 100%;
-
-  box-sizing: border-box;
-
-  padding: 22px 26px;
-
-  background-color: #ffffff;
-
-  border: 1px solid #ececea;
-  border-radius: 20px;
-
-  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
-
-  transition:
-    box-shadow 0.15s ease,
-    border-color 0.15s ease;
-}
-
-.comment:hover {
-  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
-}
-
-
-/* =========================================================
-   COMMENT HEADER
-========================================================= */
-
-.comment-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 12px;
-
-  margin-bottom: 14px;
-}
-
-.comment-header-left {
-  display: flex;
-  align-items: center;
-
-  gap: 12px;
-
-  min-width: 0;
-}
-
-
-/* =========================================================
-   COMMENT AVATAR
-========================================================= */
-
-.comment-avatar-placeholder {
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-
-  color: #fff;
-
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.comment-avatar-placeholder.small {
-  width: 32px;
-  height: 32px;
-
-  font-size: 13px;
-}
-
-
-/* =========================================================
-   COMMENT AUTHOR
-========================================================= */
-
-.comment-name-row {
-  display: flex;
-  align-items: center;
-
-  gap: 8px;
-
-  flex-wrap: wrap;
-}
-
-.comment-author {
-  color: #111827;
-
-  font-size: 15.5px;
-  font-weight: 700;
-}
-
-.comment-date {
-  display: block;
-
-  margin-top: 3px;
-
-  color: #9ca3af;
-
-  font-size: 13px;
-}
-
-
-/* =========================================================
-   ROLE BADGES
-========================================================= */
-
-.role-badge {
-  padding: 3px 12px;
-
-  border-radius: 999px;
-
-  font-size: 12.5px;
-  font-weight: 600;
-}
-
-.role-admin {
-  background-color: #fde68a;
-  color: #92400e;
-}
-
-.role-student {
-  background-color: #dbeafe;
-  color: #1d4ed8;
-}
-
-.role-visitor {
-  background-color: #f3f4f6;
-  color: #6b7280;
-}
-
-
-/* =========================================================
-   CATEGORY BADGES
-========================================================= */
-
-.category-badge {
-  display: inline-flex;
-  align-items: center;
-
-  gap: 5px;
-
-  flex-shrink: 0;
-
-  padding: 6px 14px;
-
-  border-radius: 999px;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  white-space: nowrap;
-}
-
-.category-accommodation {
-  background-color: #fef3c7;
-  color: #92400e;
-}
-
-.category-transportation {
-  background-color: #dcfce7;
-  color: #15803d;
-}
-
-.category-tuition {
-  background-color: #fee2e2;
-  color: #b91c1c;
-}
-
-.category-activities {
-  background-color: #ede9fe;
-  color: #6d28d9;
-}
-
-.category-othertopics {
-  background-color: #f3f4f6;
-  color: #6b7280;
-}
-
-
-/* =========================================================
-   COMMENT TEXT
-========================================================= */
-
-.comment-text {
-  margin: 0 0 14px;
-
-  color: #1f2937;
-
-  font-size: 15px;
-  line-height: 1.65;
-
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-
-/* =========================================================
-   COMMENT ACTIONS
-========================================================= */
-
-.comment-actions {
-  display: flex;
-  align-items: center;
-
-  gap: 20px;
-
-  padding-top: 4px;
-
-  border-top: 1px solid #f3f2ef;
-}
-
-.comment-actions button {
-  display: inline-flex;
-  align-items: center;
-
-  gap: 5px;
-
-  padding: 10px 0 0;
-
-  background: none;
-  border: none;
-
-  color: #6b7280;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: color 0.15s ease;
-}
-
-.comment-actions button:hover {
-  color: #1e2a4a;
-}
-
-.like-button.liked {
-  color: #dc2626 !important;
-}
-
-
-/* =========================================================
-   REPLY FORM
-========================================================= */
-
-.reply-form {
-  display: flex;
-
-  gap: 10px;
-
-  margin-top: 14px;
-}
-
-.reply-form input[type="text"] {
-  flex: 1;
-
-  min-width: 0;
-
-  padding: 10px 16px;
-
-  border: 1px solid #e0ddd6;
-  border-radius: 999px;
-
-  font-size: 14px;
-
-  outline: none;
-
-  transition: all 0.15s ease;
-}
-
-.reply-form input[type="text"]:focus {
-  border-color: #1e2a4a;
-
-  box-shadow: 0 0 0 3px rgba(30, 42, 74, 0.12);
-}
-
-.reply-form button[type="submit"] {
-  padding: 10px 20px;
-
-  background-color: #1e2a4a;
-  color: #fff;
-
-  border: none;
-  border-radius: 999px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  white-space: nowrap;
-
-  transition: background-color 0.15s ease;
-}
-
-.reply-form button[type="submit"]:hover {
-  background-color: #14203a;
-}
-
-
-/* =========================================================
-   REPLIES
-========================================================= */
-
-.replies-list {
-  display: flex;
-  flex-direction: column;
-
-  gap: 14px;
-
-  margin-top: 16px;
-  padding-left: 20px;
-
-  border-left: 2px solid #f0efec;
-}
-
-
 /* =========================================================
    TABLET
    601px - 900px
@@ -810,7 +426,6 @@
     width: 90%;
   }
 }
-
 
 /* =========================================================
    MOBILE
@@ -840,13 +455,11 @@
     font-size: 0.9rem;
   }
 
-
   /* Content */
 
   .university-card-content {
     padding: 20px 0;
   }
-
 
   /* Comment categories */
 
@@ -859,7 +472,6 @@
     font-size: 13px;
   }
 
-
   /* Sort */
 
   .sort-controls {
@@ -870,7 +482,6 @@
     padding: 7px 12px;
     font-size: 12px;
   }
-
 
   /* Comments */
 
@@ -884,47 +495,7 @@
     width: 100%;
     padding: 18px;
   }
-
-  .comment {
-    padding: 18px;
-    border-radius: 16px;
-  }
-
-
-  /* Comment header */
-
-  .comment-header {
-    flex-direction: column;
-  }
-
-  .category-badge {
-    align-self: flex-start;
-  }
-
-
-  /* Reply */
-
-  .reply-form {
-    flex-direction: column;
-  }
-
-  .reply-form input[type="text"] {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .reply-form button[type="submit"] {
-    align-self: flex-end;
-  }
-
-
-  /* Replies */
-
-  .replies-list {
-    padding-left: 12px;
-  }
 }
-
 
 /* =========================================================
    SMALL PHONES
@@ -947,30 +518,6 @@
   .university-badge {
     font-size: 11px;
     padding: 4px 10px;
-  }
-
-  .comment {
-    padding: 15px;
-    border-radius: 14px;
-  }
-
-  .comment-author {
-    font-size: 14px;
-  }
-
-  .comment-text {
-    font-size: 14px;
-  }
-
-  .comment-avatar-placeholder {
-    width: 35px;
-    height: 35px;
-    font-size: 13px;
-  }
-
-  .category-badge {
-    font-size: 11px;
-    padding: 5px 10px;
   }
 
   .no-comments {
