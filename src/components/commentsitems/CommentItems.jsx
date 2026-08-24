@@ -399,7 +399,7 @@ export default function CommentItem({
               universityId={universityId}
               comment={reply}
               allComments={allComments}
-              depth={depth + 1}
+              depth={depth }
               showCategory={false}
               onReply={onReply}
               replyingTo={replyingTo}
