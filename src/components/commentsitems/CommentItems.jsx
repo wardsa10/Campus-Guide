@@ -67,8 +67,17 @@ export default function CommentItem({
   allComments,
   depth,
   showCategory,
+
+  // REPLY PROPS
+  onReply,
+  replyingTo,
+  replyText,
+  setReplyText,
+  handleAddReply,
+  handleCancelReply,
 }) {
   const [author, setAuthor] = useState(null);
+
   const [viewerRole, setViewerRole] = useState(null);
 
   const currentUser = auth.currentUser;
@@ -101,7 +110,10 @@ export default function CommentItem({
 
   useEffect(() => {
     const fetchViewerRole = async () => {
-      if (!currentUser) return;
+      if (!currentUser) {
+        setViewerRole(null);
+        return;
+      }
 
       try {
         const viewerSnap = await getDoc(doc(db, "users", currentUser.uid));
@@ -174,7 +186,9 @@ export default function CommentItem({
   // =========================
 
   const formatDate = (timestamp) => {
-    if (!timestamp?.toDate) return "";
+    if (!timestamp?.toDate) {
+      return "";
+    }
 
     return timestamp.toDate().toLocaleDateString();
   };
@@ -227,7 +241,28 @@ export default function CommentItem({
   const canDelete = isOwner || isAdmin;
 
   // =========================
-  // RETURN COMMENT
+  // GET REPLIES
+  // =========================
+
+  const replies = allComments.filter((item) => item.parentId === comment.id);
+
+  // =========================
+  // REPLY CLICK
+  // =========================
+
+  const handleReplyClick = () => {
+    if (!currentUser) {
+      alert("Please log in to reply.");
+      return;
+    }
+
+    if (onReply) {
+      onReply(comment);
+    }
+  };
+
+  // =========================
+  // RETURN
   // =========================
 
   return (
@@ -252,21 +287,15 @@ export default function CommentItem({
             {displayName.charAt(0).toUpperCase()}
           </div>
 
-          {/* User Information */}
+          {/* User information */}
 
           <div>
             <div className="comment-name-row">
-              {/* Name */}
-
               <span className="comment-author">{displayName}</span>
-
-              {/* Role */}
 
               <span className={`role-badge ${roleMeta.className}`}>
                 {roleMeta.label}
               </span>
-
-              {/* Category */}
 
               {showCategory && (
                 <span className={`category-badge category-${comment.category}`}>
@@ -283,8 +312,6 @@ export default function CommentItem({
               )}
             </div>
 
-            {/* Date */}
-
             <span className="comment-date">
               {formatDate(comment.createdAt)}
             </span>
@@ -299,7 +326,7 @@ export default function CommentItem({
       {/* COMMENT ACTIONS */}
 
       <div className="comment-actions">
-        {/* Like */}
+        {/* LIKE */}
 
         <button
           type="button"
@@ -309,7 +336,17 @@ export default function CommentItem({
           {hasLiked ? "❤️" : "🤍"} {likes.length > 0 ? likes.length : ""} Like
         </button>
 
-        {/* Delete */}
+        {/* REPLY */}
+
+        <button
+          type="button"
+          className="reply-button"
+          onClick={handleReplyClick}
+        >
+          💬 Reply
+        </button>
+
+        {/* DELETE */}
 
         {canDelete && (
           <button
@@ -321,6 +358,59 @@ export default function CommentItem({
           </button>
         )}
       </div>
+
+      {/* =========================
+          REPLY FORM
+      ========================= */}
+
+      {replyingTo?.id === comment.id && (
+        <form className="reply-form" onSubmit={handleAddReply}>
+          <input
+            type="text"
+            placeholder={`Reply to ${displayName}...`}
+            value={replyText}
+            onChange={(e) => setReplyText(e.target.value)}
+            autoFocus
+          />
+          <div className="reply-form-actions">
+            {" "}
+            {/* ← new wrapper div opens */}
+            <button
+              type="button"
+              className="cancel-reply-button"
+              onClick={handleCancelReply}
+            >
+              Cancel
+            </button>
+            <button type="submit">Reply</button>
+          </div>
+        </form>
+      )}
+
+      {/* =========================
+          REPLIES
+      ========================= */}
+
+      {replies.length > 0 && (
+        <div className="replies-list">
+          {replies.map((reply) => (
+            <CommentItem
+              key={reply.id}
+              universityId={universityId}
+              comment={reply}
+              allComments={allComments}
+              depth={depth + 1}
+              showCategory={false}
+              onReply={onReply}
+              replyingTo={replyingTo}
+              replyText={replyText}
+              setReplyText={setReplyText}
+              handleAddReply={handleAddReply}
+              handleCancelReply={handleCancelReply}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

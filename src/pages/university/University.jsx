@@ -16,6 +16,7 @@ import {
 } from "firebase/firestore";
 
 import { db, auth } from "../../config/firbase";
+
 import CommentItem from "../../components/commentsitems/CommentItems";
 import RatingWidget from "../../components/rating/RatingWidget";
 
@@ -28,7 +29,16 @@ export default function University() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const [comments, setComments] = useState([]);
+
   const [newComment, setNewComment] = useState("");
+
+  // =========================
+  // REPLY STATE
+  // =========================
+
+  const [replyingTo, setReplyingTo] = useState(null);
+
+  const [replyText, setReplyText] = useState("");
 
   // =========================
   // GET UNIVERSITY
@@ -73,7 +83,7 @@ export default function University() {
       q = query(commentsRef, orderBy("createdAt", "desc"));
     }
 
-    // Show only selected category
+    // Show selected category
     else {
       q = query(
         commentsRef,
@@ -127,11 +137,77 @@ export default function University() {
     try {
       await addDoc(collection(db, "universities", id, "comments"), {
         text,
-
-        // Save the actual category
         category: selectedCategory,
-
         parentId: null,
+        userId: user.uid,
+        likes: [],
+        createdAt: serverTimestamp(),
+      });
+
+      setNewComment("");
+    } catch (error) {
+      console.error("Error adding comment:", error);
+    }
+  };
+
+  // =========================
+  // START REPLY
+  // =========================
+
+  const handleReply = (comment) => {
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("Please log in to reply.");
+      return;
+    }
+
+    setReplyingTo(comment);
+
+    setReplyText("");
+  };
+
+  // =========================
+  // CANCEL REPLY
+  // =========================
+
+  const handleCancelReply = () => {
+    setReplyingTo(null);
+    setReplyText("");
+  };
+
+  // =========================
+  // ADD REPLY
+  // =========================
+
+  const handleAddReply = async (e) => {
+    e.preventDefault();
+
+    const text = replyText.trim();
+
+    if (!text) return;
+
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("Please log in to reply.");
+      return;
+    }
+
+    if (!replyingTo) {
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "universities", id, "comments"), {
+        text,
+
+        // IMPORTANT:
+        // This makes it a reply
+        parentId: replyingTo.id,
+
+        // Keep the same category as parent
+        category: replyingTo.category,
 
         userId: user.uid,
 
@@ -140,9 +216,11 @@ export default function University() {
         createdAt: serverTimestamp(),
       });
 
-      setNewComment("");
+      setReplyText("");
+
+      setReplyingTo(null);
     } catch (error) {
-      console.error("Error adding comment:", error);
+      console.error("Error adding reply:", error);
     }
   };
 
@@ -157,6 +235,7 @@ export default function University() {
   return (
     <div className="university-card">
       {/* Back button */}
+
       <Link to="/" className="back-link">
         ← Back to all universities
       </Link>
@@ -200,13 +279,17 @@ export default function University() {
 
       <div className="university-card-content">
         {/* About */}
+
         <p className="university-about">{university.about}</p>
+
         {/* Rating */}
+
         <div className="university-rating">
           <RatingWidget universityId={id} />
         </div>
 
         {/* Majors */}
+
         <div className="university-majors">
           <h3>Majors:</h3>
 
@@ -225,6 +308,7 @@ export default function University() {
 
         <div className="comments">
           {/* ALL COMMENTS */}
+
           <button
             type="button"
             className={`commentCategory ${
@@ -236,6 +320,7 @@ export default function University() {
           </button>
 
           {/* ACCOMMODATION */}
+
           <button
             type="button"
             className={`commentCategory ${
@@ -247,6 +332,7 @@ export default function University() {
           </button>
 
           {/* TRANSPORTATION */}
+
           <button
             type="button"
             className={`commentCategory ${
@@ -258,6 +344,7 @@ export default function University() {
           </button>
 
           {/* TUITION */}
+
           <button
             type="button"
             className={`commentCategory ${
@@ -269,6 +356,7 @@ export default function University() {
           </button>
 
           {/* ACTIVITIES */}
+
           <button
             type="button"
             className={`commentCategory ${
@@ -280,6 +368,7 @@ export default function University() {
           </button>
 
           {/* OTHER TOPICS */}
+
           <button
             type="button"
             className={`commentCategory ${
@@ -298,7 +387,7 @@ export default function University() {
             <form onSubmit={handleAddComment}>
               <input
                 type="text"
-                placeholder="write a comment..."
+                placeholder="Write a comment..."
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
               />
@@ -312,7 +401,7 @@ export default function University() {
           ========================= */}
 
           <div className="comments-list">
-            {comments.length === 0 && (
+            {comments.filter((comment) => !comment.parentId).length === 0 && (
               <p className="no-comments">No comments yet — be the first!</p>
             )}
 
@@ -326,6 +415,12 @@ export default function University() {
                   allComments={comments}
                   depth={0}
                   showCategory={selectedCategory === "all"}
+                  onReply={handleReply}
+                  replyingTo={replyingTo}
+                  replyText={replyText}
+                  setReplyText={setReplyText}
+                  handleAddReply={handleAddReply}
+                  handleCancelReply={handleCancelReply}
                 />
               ))}
           </div>
